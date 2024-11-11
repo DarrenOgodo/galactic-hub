@@ -1,0 +1,354 @@
+html{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url("/images/landing-bg.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-x: hidden;
+}
+
+.body-container {
+    flex: 1; /* Fills available space, pushing footer to bottom */
+    display: flex;
+    width: 100%;
+}
+
+.side-panel {
+    background-color: rgb(237, 237, 237);
+    box-shadow: 0px 0px 20px 10px rgba(180, 180, 180, 0.25);
+    color: #0a0a0a;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 40px;
+    margin-top: 10%;
+    margin-left: 10%;
+    max-width: 30%;
+    font-size: large;
+    font-family: 'Orbitron', 'Gill Sans';
+    height: max-content;
+    align-self: center;
+}
+
+/* Set full width for the header */
+.head {
+    width: 100%;
+    display: flex;
+    align-items: top center; /* Align logo and nav vertically */
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 10;
+}
+
+/* Styling for the logo */
+.logo {
+    height: 50px; /* Adjust the height as needed */
+    margin: 0 2em; /* Space between logo and navigation links */
+}
+
+.logo-container{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom-right-radius: 15px; 
+}
+
+/* Set nav to fill remaining space */
+nav {
+    flex-grow: 1; /* Allow nav to take up remaining space */
+    background-color: #ffff;
+    color: #1891AC;
+    max-width: 75%;
+    padding: 10px 20px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center; /* Align nav items to the center */
+    font-family: 'Orbitron', 'sans-serif';
+    border-bottom-left-radius: 15px; /* Adjust for desired rounded corner */
+    border-bottom-right-radius: 15px; /* Adjust for desired rounded corner */
+}
+
+/* Ensure nav-content aligns items properly */
+.nav-content {
+    display: flex;
+    justify-content: center;
+    color: rgba(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+    width: 100%;
+}
+
+/* Reset default styling for ul */
+nav ul {
+    list-style: none;
+    display: flex;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: rgba(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #1891AC;
+}
+
+/* Styling for the footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    align-self: center;
+    font-family: 'Orbitron', 'sans-serif';
+    width: 100%;
+    margin-top: 10%;
+}
+
+/* Position form-container beside the side-panel */
+.form-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent black */
+    padding: 20px;
+    margin: 40px;
+    margin-top: 13%;
+    margin-left: 10%;
+    height: max-content;
+    flex-grow: 1;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 10px rgba(180, 180, 180, 0.25);
+    max-width: 23%; /* Controls width beside the side-panel */
+    color: #0a0a0a;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Toggle Button Styling */
+.form-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    border: 1px solid #ededed;
+    box-shadow: 0px 0px 0.5px 0.5px #ffffff;
+    border-radius: 50px;
+    width: max-content;
+    align-self: center;
+    justify-self: center;
+}
+
+.form-toggle button {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 10px 20px;
+    /* margin: 0 10px; */
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.form-toggle .active {
+    background-color: #1891AC; /* Active button color */
+    color: #0a0a0a;
+}
+
+/* Form Styling */
+.form {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    position: relative;
+}
+
+.form.active {
+    display: flex; /* Show active form */
+}
+
+.form h2 {
+    font-size: 24px;
+    color: #1891AC;
+    margin-bottom: 15px;
+}
+
+.form label {
+    margin: 10px 0 5px;
+    color: #ffffff;
+}
+
+.form input {
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #1891AC;
+    background-color: rgba(180, 180, 180, 0.25);
+    color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.form input:focus{
+    border: 1px solid #1891ac;
+    box-shadow: 0px 0px 5px 2px rgb(24, 145, 172);
+    outline: none;
+}
+
+::placeholder {
+    color: #b1b1b1;
+    font-family: 'Orbitron', sans-serif;
+}
+
+button{
+    font-family: 'Orbitron', sans-serif;
+}
+
+.form button[type="submit"] {
+    background-color: #1891AC;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form button[type="submit"]:hover {
+    background-color: #ffffff;
+    color:#0a0a0a;
+}
+
+.name{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.name input{
+    max-width: 42%;
+}
+
+.error-container{
+    z-index: 20;
+    background-color: rgba(177, 177, 177, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.error{
+    z-index: 21;
+    width: 35%;
+    height: 20%;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    background-color: #ffffff;
+    color: #0a0a0a;
+    box-shadow: 0px 0px 3px 2px rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.error i{
+    position: absolute;
+    top: 15%; 
+    right: 2%; 
+    cursor: pointer;
+}
+
+.error h2{
+    position: absolute;
+    top: 0; 
+    cursor: pointer;
+    color: red;
+    margin-top: 2%;
+}
+
+.error-content{
+    font-family: 'Orbitron', sans-serif;
+    font-size: larger;
+    padding: 10px
+}
+
+.hidden{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    html{
+        margin: 0;
+        border: 0;
+        padding: 0;
+        display: flex;
+    }
+    .head {
+        flex-direction:row;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+        z-index: 10;
+        top: 0;
+    }
+    .logo-container {
+        border-bottom-left-radius: 15px;
+    }
+    nav{
+        flex-grow: 1;
+        margin: 0;
+        padding: 15px;
+        height: 100%;
+        max-width: 50%;
+    }
+    .side-panel {
+        margin: 20px;
+        margin-left: 5%;
+        max-width: 90%;
+        font-size: medium;
+    }
+    .form-container, .side-panel {
+        max-width: 100%;
+        margin: 20px;
+    }
+    .form-toggle {
+        justify-self: center;
+        align-self: center;
+    }
+    .body-container {
+        flex-direction: column;
+        margin-top: 70px;
+    }
+
+}

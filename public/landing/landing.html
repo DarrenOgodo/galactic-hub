@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/landing/landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora:ital@1&family=Orbitron:wght@400..900&family=Prata&display=swap');
+    </style>
+    <title>Galactic Hub</title>
+</head>
+<body>
+    <div class="head">
+        <div class="logo-container">
+            <img src="/images/logo.png" alt="Galactic hub logo" class="logo"></img>
+        </div>
+        <nav>
+            <div class="nav-content">
+                <!-- replace ul with marquee -->
+                <marquee behavior="scroll" direction="left">*REPLACE WITH SMTH*</marquee>
+            </div>        
+        </nav>
+    </div>
+
+    <div class="body-container">
+        <div class="error-container hidden">
+            <div class="error">
+                <i class="fa-regular fa-x fa-lg"></i>
+                <h2>Error</h2>
+                <p class="error-content"></p>
+            </div>
+        </div>
+
+        <div class="side-panel">
+            <div class="side-panel-content">
+                <h1>Galactic Hub</h1>
+                <h3>Join the Galactic Hub and explore the universe with us!</h3>
+                <p>Your one stop location for everthing planet related and all other celestial bodies.</p> 
+                
+            </div>
+        </div>
+
+        <!-- Login/Registration Container -->
+        <div class="form-container">
+            <!-- Toggle Buttons -->
+            <div class="form-toggle">
+                <button id="loginBtn" onclick="showLogin()" class="active">Login</button>
+                <button id="registerBtn" onclick="showRegister()">Register</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="form active">
+                <h2>Login</h2>
+                <input type="email" id="loginEmail" name="loginEmail" placeholder="Email" required>
+                
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="Password" required>
+                
+                <button type="submit">Login</button>
+            </form>
+            
+            <!-- Registration Form -->
+            <form id="registerForm" class="form">
+                <h2>Register</h2>
+                <div class="name">
+                    <input type="text" id="fname" name="fname"  placeholder="First Name" required>
+                    <input type="text" id="lname" name="lname"  placeholder="Last Name" required>
+                </div>
+                
+                <input type="text" id="dob" name="dob" onfocus="(this.type='date')"
+                onblur="(this.type='text')" placeholder="Date of Birth" required>
+                
+                <input type="email" id="signupEmail" name="signupEmail" placeholder="Email" required>
+                
+                <input type="password" id="signupPassword" name="signupPassword" placeholder="Password" required>
+                
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+        
+    <footer class="footer">
+        <p>&copy; 2025 Galactic Hub. All rights reserved.</p>
+    </footer>
+    
+    <script src="/public/landing/landing.js"></script>
+</body>
+</html>

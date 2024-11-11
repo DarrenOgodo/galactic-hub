@@ -1,0 +1,24 @@
+{
+  "name": "galactic-hub",
+  "version": "1.0.0",
+  "description": "This project is based on a GitLab [Project Template](https://docs.gitlab.com/ee/user/project/#create-a-project-from-a-built-in-template).",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.1",
+    "firebase": "^11.0.0",
+    "firebase-admin": "^12.6.0",
+    "path": "^0.12.7"
+  }
+}

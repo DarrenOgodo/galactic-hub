@@ -1,0 +1,180 @@
+/* Default/template css for the application */
+:root {
+    --primary-color: #1891AC;
+    --secondary-color: #ffffff;
+    --tertiary-color: #0a0a0a;
+    --fourth-color: #ededed;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: 'Orbitron', 'sans-serif';
+}
+
+body {
+    background-image: url("/images/main-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-x: hidden;
+}
+
+.body-container {
+    flex: 1; /* Fills available space, pushing footer to bottom */
+    display: flex;
+    width: 100%;
+}
+
+/* Set full width for the header */
+.head {
+    width: 100%;
+    display: flex;
+    align-items: top center; /* Align logo and nav vertically */
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1000;
+}
+
+/* Styling for the logo */
+.logo {
+    height: 50px; /* Adjust the height as needed */
+    margin: 0 2em; /* Space between logo and navigation links */
+}
+
+.logo-container-left{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom-right-radius: 15px; 
+}
+
+.logo-container-right{
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom-left-radius: 15px; 
+    justify-content: center;
+    align-content: center;
+    max-width: 25%;
+    flex-grow: 1;
+    padding: 0;
+}
+
+.logo-container-right:hover{
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Set nav to fill remaining space */
+nav {
+    flex-grow: 1; /* Allow nav to take up remaining space */
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    min-width: 75%;
+    /* max-width: 90%; */
+    padding: 10px 20px;
+    margin-top: 0;
+    display: flex;
+    flex: 1;
+    justify-content: center; /* Align nav items to the center */
+    font-family: 'Orbitron', 'sans-serif';
+    border-bottom-left-radius: 15px; /* Adjust for desired rounded corner */
+    border-bottom-right-radius: 15px; /* Adjust for desired rounded corner */
+}
+
+/* Ensure nav-content aligns items properly */
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+    width: 100%;
+}
+
+/* Reset default styling for ul */
+nav ul {
+    list-style: none;
+    display: flex;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: rgba(0, 0, 0);
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Styling for the footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--secondary-color);
+    padding: 10px;
+    text-align: center;
+    align-self: center;
+    font-family: 'Orbitron', 'sans-serif';
+    width: 100%;
+    margin-top: 10%;
+}
+
+
+@media screen and (max-width: 768px) {
+    html{
+        margin: 0;
+        border: 0;
+        padding: 0;
+        display: flex;
+    }
+    .head {
+        flex-direction:row;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+        z-index: 0;
+        top: 0;
+    }
+    .logo-container {
+        border-bottom-left-radius: 15px;
+    }
+    nav{
+        flex-grow: 1;
+        margin: 0;
+        padding: 15px;
+        height: 100%;
+        max-width: 50%;
+    }
+    .body-container {
+        flex-direction: column;
+        margin-top: 70px;
+    }
+}
