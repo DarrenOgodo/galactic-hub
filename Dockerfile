@@ -1,6 +1,15 @@
-FROM node:21-alpine
+FROM node:18.14.2
+
 WORKDIR /usr/src/app
-COPY . .
+
+COPY package*.json ./
+
 RUN npm install
-EXPOSE 80
+
+COPY . .
+
+ENV PORT=5050
+
+EXPOSE 5050
+
 CMD [ "npm", "start" ]
