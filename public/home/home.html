@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/public/home/home.css">
+    <!-- Font Awesome Library 6.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
+        /* Google fonts */
         @import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora:ital@1&family=Orbitron:wght@400..900&family=Prata&display=swap');
     </style>
     <title>Galactic Hub - Home</title>
@@ -21,6 +25,7 @@
                     <li><a>Home</a></li>
                     <li><a>Gallery</a></li>
                     <li><a>Games</a></li>
+                    <li><a>More</a></li>
                     <li><a>###</a></li>
                 </ul>
             </div>        
@@ -32,13 +37,44 @@
     
     <!-- put all the content in the body-container div so footer is at the bottom of the page -->
     <div class="body-container">
+        <!-- banner with welcoming info using AOS for animations -->
+        <div class="landing-banner">
+            <h1 data-aos="zoom-in-down" data-aos-duration="1500">WELCOME TO [...]</h1>
+            <h2 data-aos="zoom-in">Come [...] with us...</h2>
+            <p></p>
+            <h4 data-aos="zoom-in">Here's your latest space news:</h4>
+        </div>
+
+        <!-- news cards container -->
+        <div class="card-container">
+          <div class="card" data-aos="fade-right" data-aos-delay="1200"></div>
+          <div class="card" data-aos="fade-up" data-aos-delay="1400"></div>
+          <div class="card" data-aos="fade-left" data-aos-delay="1600"></div>
+        </div>
+
+        <!-- <div class="landing-banner">
+          <h1 data-aos="zoom-in-down" data-aos-duration="1500">WELCOME TO [...]</h1>
+          <h2 data-aos="zoom-in">Come [...] with us...</h2>
+          <p></p>
+          <h4 data-aos="zoom-in">Here's your latest space news:</h4>
+        </div> -->
     </div>
         
     <footer class="footer">
         <p>&copy; 2025 Galactic Hub. All rights reserved.</p>
     </footer>
     
-    <script src="/public/home/home.js"></script>
+
 </body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        delay: 500,
+        duration: 2000,
+        once: false,
+        mirror: false
+    })
+</script>
+<script src="/public/home/home.js"></script>
 </html>
 
