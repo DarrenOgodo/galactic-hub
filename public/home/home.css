@@ -34,6 +34,10 @@ body {
     overflow-x: hidden;
 }
 
+p{
+    font-size: larger;
+}
+
 .body-container {
     flex: 1; /* Fills available space, pushing footer to bottom */
     display: flex;
@@ -156,7 +160,6 @@ nav ul li a:hover {
     max-height: 35vh;
     margin: 5px auto;
     padding: 0;
-    /* background-color: var(--primary-color); */
     justify-content: space-between;
     display: flex;
     flex-direction: row;
@@ -169,12 +172,13 @@ nav ul li a:hover {
     background-color: var(--fourth-color);
     border-radius: 10%;
     overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .card:hover{
     cursor: pointer;
-    transform: translateY(-2px);
-    background-color: var(--secondary-color);
+    transform: translateY(-5px); /* doesn't work for some reason, likely clashing with AOS */
+    background-color: #ffffff;
 }
 
 .news-img{
@@ -195,6 +199,45 @@ nav ul li a:hover {
     margin: auto;
     padding-left: 5px;
     font-weight: bold;
+}
+
+.random-fact-container{
+    margin-top: 5%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    width: 80%;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    border-radius: 15px;
+}
+
+.item-container{
+    display: flex;
+    width: 80%;
+    height: 45vh;
+    align-self: center;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.45);
+    margin-bottom: 5%;
+}
+
+.item-image{
+    height: 100%;
+    aspect-ratio: 1 / 1; /* Ensures width is equal to height */
+}
+
+.item-text{
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Styling for the footer */
@@ -239,5 +282,11 @@ footer {
         flex-direction: column;
         margin-top: 70px;
         margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .item-container {
+        height: 25vh;
     }
 }
