@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../solar-system/solar-system.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora:ital@1&family=Orbitron:wght@400..900&family=Prata&display=swap');
+    </style>
+    <title>Galactic Hub</title>
+</head>
+<body>
+    <div class="head">
+        <div class="logo-container-left">
+            <img src="../../images/logo.png" alt="Galactic hub logo" class="logo"></img>
+        </div>
+        <nav>
+            <div class="nav-content">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="/games">Games</a></li>
+                    <li><a>More</a></li>
+                </ul>
+            </div>        
+        </nav>
+        <div class="logo-container-right" title="Profile">
+           <center><P><i class="fa-regular fa-user fa-xl"></i> Profile</P></center>
+        </div>
+    </div>
+
+    <!-- put all the content in the body-container div so footer is at the bottom of the page -->
+    <div class="body-container">
+        <div class="info-container hidden">
+            <div class="info">
+                <i class="fa-regular fa-x fa-lg"></i>
+                <h1 id="info-title">Title</h1>
+                <p class="info-content"></p>
+            </div>
+        </div>
+
+        <div class="top-layer">
+            <button id="details">DETAILS <i class="fa-solid fa-circle-info"></i></button>
+            <h1 id="planet-name">MERCURY</h1>
+            <button id="statistics">STATISTICS <i class="fa-solid fa-chart-simple"></i></button>
+        </div>
+        <div class="mid-layer">
+            <i class="fa-solid fa-chevron-left fa-xl" id="prev"></i>
+            <div id="planet"></div>
+            <i class="fa-solid fa-chevron-right fa-xl" id="next"></i>
+        </div>
+        <div class="down-layer">
+            <button id="fun-facts">FUN FACTS <i class="fa-solid fa-lightbulb"></i></button>
+        </div>
+    </div>
+        
+    <!-- <footer class="footer">
+        <p>&copy; 2025 Galactic Hub. All rights reserved.</p>
+    </footer> -->
+    
+    <script src="../solar-system/solar-system.js"></script>
+</body>
+</html>

@@ -112,7 +112,9 @@ function checkError(error){
     }else if(error.includes('auth/wrong-password')){
         return 'Incorrect password.';
     }else if(error.includes('auth/invalid-credential')){
-        return 'Invalid credentials';
+        return 'Invalid credentials.';
+    }else if (error.includes('auth/too-many-requests')){
+        return 'Too many attempts.';
     }else{
         return error;
     }

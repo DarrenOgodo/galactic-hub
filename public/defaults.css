@@ -16,10 +16,11 @@ html{
     flex-direction: column;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    font-family: 'Orbitron', 'sans-serif';
 }
 
 body {
-    background-image: url("/images/main-bg.jpg");
+    background-image: url("./images/main-bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -33,10 +34,17 @@ body {
     overflow-x: hidden;
 }
 
+p{
+    font-size: larger;
+    letter-spacing: 1.5px;
+}
+
 .body-container {
     flex: 1; /* Fills available space, pushing footer to bottom */
     display: flex;
+    flex-direction: column;
     width: 100%;
+    margin-top: 5vh;
 }
 
 /* Set full width for the header */
@@ -48,7 +56,6 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    position: fixed;
     z-index: 1000;
 }
 
@@ -58,9 +65,27 @@ body {
     margin: 0 2em; /* Space between logo and navigation links */
 }
 
-.logo-container{
+.logo-container-left{
     background-color: rgba(0, 0, 0, 0.5);
     border-bottom-right-radius: 15px; 
+}
+
+.logo-container-right{
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom-left-radius: 15px; 
+    justify-content: center;
+    align-content: center;
+    max-width: 25%;
+    flex-grow: 1;
+    padding: 0;
+}
+
+.logo-container-right:hover{
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
 }
 
 /* Set nav to fill remaining space */
@@ -68,10 +93,12 @@ nav {
     flex-grow: 1; /* Allow nav to take up remaining space */
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    max-width: 75%;
+    min-width: 75%;
+    /* max-width: 90%; */
     padding: 10px 20px;
     margin-top: 0;
     display: flex;
+    flex: 1;
     justify-content: center; /* Align nav items to the center */
     font-family: 'Orbitron', 'sans-serif';
     border-bottom-left-radius: 15px; /* Adjust for desired rounded corner */
@@ -112,6 +139,35 @@ nav ul li a {
 nav ul li a:hover {
     color: var(--primary-color);
     cursor: pointer;
+}
+
+.item-container{
+    display: flex;
+    width: 80%;
+    height: 45vh;
+    align-self: center;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.45);
+    margin-bottom: 5%;
+    overflow: hidden;
+}
+
+.item-image{
+    height: 100%;
+    aspect-ratio: 1 / 1; /* Ensures width is equal to height */
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-size: cover;
+}
+
+.item-text{
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
 /* Styling for the footer */
@@ -155,5 +211,12 @@ footer {
     .body-container {
         flex-direction: column;
         margin-top: 70px;
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .item-container {
+        height: 25vh;
     }
 }

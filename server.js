@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
 const port = process.env.PORT || 5050;
 
 // **TALK TO MISHA TO DISCUSS THE BEST WAY TO HANDLE SERVICE ACCOUNT**
@@ -45,8 +45,8 @@ app.get("/", (req, res, next) => {
     root: path.join(__dirname, "."),
   };
 
-  const fileName = "public/landing/landing.html";
-  return res.sendFile(fileName, options, function (err) {
+  const fileName = "/public/landing/landing.html";
+  return res.sendFile(path.join(__dirname, "public", "landing", "landing.html"), function (err) {
     err ? console.log(err) : console.log("Sent:", fileName);
   });
 });
@@ -60,8 +60,20 @@ app.post('/login', async(req,res,next) => {
   try {
     const user = await loginUser(email,password);
     const token = await user.getIdToken({forceRefresh: true}); //getting auth token from firebase
-    res.cookie('auth-token', token, { maxAge: 3600000, httpOnly: true }); // setting cookie with token
-    res.status(200).json({ message: 'Login successful!', user: user.uid });
+
+    res.cookie('auth-token', 
+      token, 
+      { 
+        maxAge: 3600000, 
+        httpOnly: true 
+      }
+    ); // setting cookie with token
+
+    res.status(200).json({ 
+      message: 'Login successful!', 
+      user: user.uid 
+    });
+    
     console.log(user.uid, 'logged in');
   } catch (error) {
     res.status(400).json({ message: 'Login unsuccessful!', error: error.message});
@@ -76,8 +88,20 @@ app.post('/register', async(req,res) => {
   try {
     const newUser = await createUser({ fname, lname, dob, email, password });
     const token = await newUser.getIdToken({forceRefresh: true}); //getting auth token from firebase
-    res.cookie('auth-token', token, { maxAge: 3600000, httpOnly: true }); // setting cookie with token
-    res.status(200).json({ message: 'Registeration succesful', user: newUser.uid });
+    
+    res.cookie('auth-token', 
+      token, 
+      { 
+        maxAge: 3600000, 
+        httpOnly: true 
+      }
+    ); // setting cookie with token
+
+    res.status(200).json({ 
+      message: 'Registeration succesful', 
+      user: newUser.uid 
+    });
+
     console.log(newUser.uid, 'registered');
   } catch (error) {
     res.status(400).json({ message: 'User creation failed[server side]:', error: error.message });
@@ -86,9 +110,20 @@ app.post('/register', async(req,res) => {
 });
 
 // home page
-app.get('/home', verifyToken, (req,res) => {
-  res.status(200).sendFile(path.join(__dirname, 'public/home/home.html'));
-})
+app.get('/home', verifyToken, (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, 'public', 'home', 'home.html'));
+});
+
+// gallery page
+app.get('/gallery', verifyToken, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gallery', 'gallery.html'));
+});
+
+// solar system
+app.get('/gallery/solar-system', verifyToken, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gallery', 'solar-system', 'solar-system.html'));
+});
+
 
 app.listen(port, () => {
   console.log("Listening on " + port);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/public/home/home.css">
+    <link rel="stylesheet" type="text/css" href="../home/home.css">
     <!-- Font Awesome Library 6.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- AOS CSS -->
@@ -17,16 +17,15 @@
 <body>
     <div class="head">
         <div class="logo-container-left">
-            <img src="/images/logo.png" alt="Galactic hub logo" class="logo"></img>
+            <img src="../images/logo.png" alt="Galactic hub logo" class="logo"></img>
         </div>
         <nav>
             <div class="nav-content">
                 <ul>
                     <li><a>Home</a></li>
-                    <li><a>Gallery</a></li>
-                    <li><a>Games</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="/games">Games</a></li>
                     <li><a>More</a></li>
-                    <li><a>###</a></li>
                 </ul>
             </div>        
         </nav>
@@ -55,28 +54,22 @@
 
         <div class="random-fact-container"></div>
 
-        <!-- ** GenAI generated inline styling ** -->
+        <!-- ** Copilot generated inline styling ** -->
         <center><h1 style="margin-top: 5%;">Checkout our...</h1></center>
 
         <div class="item-container">
-            <div class="item-image"></div>
-            <div class="item-text"><b><p>GALLERY</p></b></div>
+            <div class="item-image" style="background-image: url('../images/gallery.avif');"></div>
+            <div class="item-text"><p><b>GALLERY</b> where you can explore various visualisations of solar bodies.</p></div>
         </div>
         <div class="item-container">
-            <div class="item-image"></div>
-            <div class="item-text"><b><p>GAMES</p></b></div>
+            <div class="item-text"><p><b>GAMES</b> you can play to pass the time and improve memory on astronomy.</p></div>
+            <div class="item-image" style="background-image: url('../images/games.avif');"></div>
         </div>
         <div class="item-container">
-            <div class="item-image"></div>
-            <div class="item-text"><b>SOLAR SYSTEM</b></div>
+            <div class="item-image" style="background-image: url('../images/solar-system.png');"></div>
+            <div class="item-text"><p><b>SOLAR SYSTEM</b> showcase where you can specifically learn about the planets in the milky way</p></div>
         </div>
 
-        <!-- <div class="landing-banner">
-          <h1 data-aos="zoom-in-down" data-aos-duration="1500">WELCOME TO [...]</h1>
-          <h2 data-aos="zoom-in">Come [...] with us...</h2>
-          <p></p>
-          <h4 data-aos="zoom-in">Here's your latest space news:</h4>
-        </div> -->
     </div>
         
     <footer class="footer">
@@ -94,6 +87,6 @@
         mirror: false
     })
 </script>
-<script src="/public/home/home.js"></script>
+<script src="../home/home.js"></script>
 </html>
 
