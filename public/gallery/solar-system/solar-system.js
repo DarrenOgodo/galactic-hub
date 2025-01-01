@@ -109,7 +109,7 @@ function removeElementsByClass(className) {
 
 async function loadData(){
     try {
-        const response = await fetch('/public/resources/planet-data.json');
+        const response = await fetch('/resources/planet-data.json');
         
         if(response.ok){
             planets_data = await response.json();

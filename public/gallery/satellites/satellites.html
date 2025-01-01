@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="map" style="height: 500px; width: 90%; display: flex; margin: 0 auto;"></div>
+    
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([0, 0], 2);
+
+        // Add a tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+        }).addTo(map);
+
+        async function fetchSatellite() {
+            const response = await fetch('https://corsproxy.io/https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/0/2/&apiKey=8CJTFR-Y8KBU8-QLTW4U-5E6E');
+            const data = await response.json();
+            console.log(data);
+
+            const { satlatitude, satlongitude } = data.positions[0];
+
+            // Add a marker for the satellite
+            const marker = L.marker([satlatitude, satlongitude]).addTo(map);
+            marker.bindPopup('ISS - International Space Station<br>Launched - 1999').openPopup();
+
+            // Center map on satellite
+            map.setView([satlatitude, satlongitude], 4);
+        }
+
+        fetchSatellite();
+
+    </script>
+</body>
+</html>
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var norad_n2yo = '25544|ISS,43600|Aeolus,20580|HST';
+        var size_n2yo = 'medium';
+        var allpasses_n2yo = '0';
+        var map_n2yo = '5';
+    </script>
+    <script type="text/javascript" src="https://www.n2yo.com/js/widget-tracker.js"></script>
+</body>
+</html> -->

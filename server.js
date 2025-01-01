@@ -47,7 +47,7 @@ app.get("/", (req, res, next) => {
 
   const fileName = "/public/landing/landing.html";
   return res.sendFile(path.join(__dirname, "public", "landing", "landing.html"), function (err) {
-    err ? console.log(err) : console.log("Sent:", fileName);
+    err ? console.log(err) : console.log("Redirected Home");
   });
 });
 
@@ -74,7 +74,6 @@ app.post('/login', async(req,res,next) => {
       user: user.uid 
     });
     
-    console.log(user.uid, 'logged in');
   } catch (error) {
     res.status(400).json({ message: 'Login unsuccessful!', error: error.message});
     console.log('Login failed[server side]:', error.message);
@@ -123,6 +122,10 @@ app.get('/gallery', verifyToken, (req, res) => {
 app.get('/gallery/solar-system', verifyToken, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'gallery', 'solar-system', 'solar-system.html'));
 });
+
+app.get('/gallery/apod', verifyToken, (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gallery', 'apod', 'apod.html'));
+})
 
 
 app.listen(port, () => {

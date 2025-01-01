@@ -20,7 +20,7 @@ html{
 }
 
 body {
-    background-image: url("../../images/dark-bg.jpg");
+    background-image: url("../../images/main-bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -37,7 +37,7 @@ body {
 p{
     font-size: larger;
     letter-spacing: 1.5px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .body-container {
@@ -141,135 +141,69 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-.info-container{
-    z-index: 30;
-    background-color: rgba(7, 7, 7, 0.9);
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    margin: 0;
-    position: fixed;
+#page-title {
+    font-size: 2.5rem; 
+    text-align: center; 
+    margin-top: 50px; 
+    color: white; 
+    font-family: 'Orbitron', sans-serif; 
+    text-shadow: 0 2px 2px rgba(255, 255, 255, 0.8), 
+                 0 0 5px rgba(255, 255, 255, 0.6), 
+                 0 0 10px rgba(255, 255, 255, 0.4);
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    background: none;
+}
+
+#date-picker{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--fourth-color);
+    border: 1px solid var(--secondary-color);
+    width: max-content;
+    align-self: center;
+    margin-top: 0;
     font-family: 'Orbitron', sans-serif;
-}
-
-.info {
-    width: 65%;
-    height: min-content;
-    max-height: 70%; /* Prevent container from exceeding viewport */
-    border-radius: 10px;
-    padding: 15px;
-    position: relative;
-    contain: content;
-    background-color: #ffffff;
-    color: #0a0a0a;
-    box-shadow: 0px 0px 3px 2px rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Prevent overflow issues */
-}
-
-.info i{
-    position: fixed;
-    top: 35px; /* Adjust top position */
-    right: 15px; /* Adjust right position */
-    cursor: pointer;
-}
-
-.info h1{
-    position: absolute;
-    top: 0; 
-    cursor: pointer;
-    color: var(--primary-color);
-    margin-top: 2%;
-    padding-bottom: 50px;
-    justify-self: center;
-}
-
-#info-head {
-    width: 100%;
-    height: auto;
-    padding: 25px 0; /* Consistent spacing inside header */
-    display: flex;
-    justify-content: space-between; /* Align close button and title */
-    align-items: center; /* Vertically align items */
-    border-bottom: 2px solid var(--primary-color); /* Optional: visual separation */
-}
-
-#info-body {
-    flex: 1; /* Ensure content container stretches to fill available space */
-    overflow-y: auto; /* Enable scrolling for content */
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Consistent spacing between paragraphs */
-}
-
-.info-content {
-    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
     font-size: larger;
-    margin: 10px 0; /* Add spacing between paragraphs */
-    padding: 0 10px; /* Add padding for readability */
-    text-align: justify; /* Optional for better alignment */
+    border-radius: 10px;
+    padding: 10px;
+    cursor: text;
 }
 
-.hidden{
+#date-picker::-webkit-calendar-picker-indicator{
+    background-color: var(--secondary-color);
+    cursor: pointer;
+}
+
+#image-cont{
+    min-width: min-content;
+    max-width: 90vw;
     display: none;
-}
-
-.top-layer, .down-layer{
-    width: 100vw;
-    height: 15vh;
-    display: flex;
-}
-
-.top-layer{
-    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-self: center;
     align-items: center;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 10px;
 }
 
-.down-layer{
-    align-items: center;
-    justify-content: center;
-}
-
-.mid-layer{
-    width: 100vw;
-    height: 70vh;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-#planet{
-    border-radius: 50%;
-    background-size: cover;
-    background: url("../../images/Mercury.jpg") repeat-x;
-    background-position: right center;
-    background-color: chocolate;
-    border: none;
-    height: 95%;
-    aspect-ratio: 1/1;
-    box-shadow: inset -2em -2em 2em #000000;
-    position: relative;
-    animation: rotate 30s linear infinite;
-}
-
-@keyframes rotate {
-    to{ background-position: -200% 0;}
-    /* from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: -100% 0;
-    } */
+#image, #video{
+    min-width: 50%;
+    max-width: 95%;
+    min-height: 50vh;
+    max-height: 80vh;
 }
 
 button {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.2em;
+    width: fit-content;
+    display: flex;
+    align-self: center;
     font-weight: bold;
+    margin-top: 10px;
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
@@ -289,21 +223,30 @@ button:active{
     transform: scale(0.9);
 }
 
-i.fa-chevron-right, i.fa-chevron-left{
-    color: var(--fourth-color); 
-    font-size: 6rem; 
-    cursor: pointer;
-    transition: transform 0.2s ease;
+button:disabled{
+    cursor: not-allowed;
+    background-color: darkgray;
+    box-shadow: none;
+    transform: none;
 }
 
-i.fa-chevron-right:hover, i.fa-chevron-left:hover{
-    color: var(--secondary-color);
-    transform: scale(1.3);
+.loader {
+    border: 3px solid transparent;
+    border-top: 3px solid white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 0.5s linear infinite;
+    display: inline-block;
 }
 
-i.fa-chevron-right:active, i.fa-chevron-left:active{
-    color: var(--secondary-color);
-    transform: scale(0.6);
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Styling for the footer */
