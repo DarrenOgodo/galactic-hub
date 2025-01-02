@@ -127,6 +127,24 @@ app.get('/gallery/apod', verifyToken, (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'gallery', 'apod', 'apod.html'));
 })
 
+app.get('/gallery/satellites', verifyToken, (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gallery', 'satellites', 'satellites.html'));
+})
+
+app.get('/satelliteData/:id/:duration', async(req,res) =>{
+  const n2yoKey = "8CJTFR-Y8KBU8-QLTW4U-5E6E";
+  const { id, duration } = req.params;
+
+  try {
+    const response = await fetch(`https://api.n2yo.com/rest/v1/satellite/positions/${id}/0/0/0/${duration}/&apiKey=${n2yoKey}`);
+    const data = await response.json();
+    res.send(data);
+
+  } catch (error) {
+    console.error("Error fetching satellite data:", error);
+    res.status(500).json({ error: "Failed to fetch satellite data" });
+  }
+})
 
 app.listen(port, () => {
   console.log("Listening on " + port);
