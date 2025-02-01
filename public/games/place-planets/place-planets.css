@@ -20,7 +20,7 @@ html{
 }
 
 body {
-    background-image: url("./images/main-bg.jpg");
+    background-image: url("../../images/dark-bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -37,6 +37,7 @@ body {
 p{
     font-size: larger;
     letter-spacing: 1.5px;
+    font-weight: 600;
 }
 
 .body-container {
@@ -44,7 +45,6 @@ p{
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 5vh;
 }
 
 /* Set full width for the header */
@@ -56,7 +56,7 @@ p{
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 10;
 }
 
 /* Styling for the logo */
@@ -168,6 +168,7 @@ nav ul li a:hover {
 /* Ensure dropdown items are styled properly */
 .dropdown li {
     display: block;
+    overflow-x: hidden;
 }
 
 /* Style dropdown links */
@@ -189,46 +190,103 @@ nav ul li a:hover {
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none; 
+    color: inherit; 
+    display: inherit; 
+    width: 100%;
 }
 
-a:visited {
-    color: inherit;
+a:hover{
+    cursor: pointer;
 }
 
-a:hover, a:active {
-    color: inherit;
+#page-title {
+    font-size: 2.5rem; 
+    text-align: center; 
+    margin-top: 50px; 
+    color: white; 
+    font-family: 'Orbitron', sans-serif; 
+    text-shadow: 0 2px 2px rgba(255, 255, 255, 0.8), 
+                 0 0 2px rgba(255, 255, 255, 0.6), 
+                 0 0 5px rgba(255, 255, 255, 0.4);
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    background: none;
 }
 
-.item-container{
+.placeholder, .planets{
     display: flex;
-    width: 80%;
-    height: 45vh;
-    align-self: center;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.45);
-    margin-bottom: 5%;
-    overflow: hidden;
+    justify-content: space-evenly;
+    margin-top: 5%;
 }
 
-.item-image{
+.planets-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20%;
+}
+
+.box{
+    position: relative;
+    width: 10%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 2px dashed var(--fourth-color);
+    /* overflow: hidden; */
+}
+
+.box .planet{
     height: 100%;
-    aspect-ratio: 1 / 1; /* Ensures width is equal to height */
+    width: 100%;
+    border-radius: 50%;
+    background-size: cover; 
+    background-position: center;
+    /* background-color: red; */
+}
+
+.planet{
+    width: 10%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-size: cover; 
+    background-position: center;
+    background-color: rgb(8, 22, 22);
+    /* background-image: url('img.png'); */
     background-repeat: no-repeat;
-    /* background-attachment: fixed; */
     background-size: cover;
 }
 
-.item-text{
-    height: 100%;
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
+.planet:hover{
+    cursor: pointer;
 }
+
+.hovered{
+    background-color: rgba(80, 185, 255, 0.904);
+    cursor: pointer;
+}
+
+dialog{
+    font-family: 'Orbitron', 'sans-serif';
+    font-size: 1.5em;
+    font-weight: 600;
+    border-radius: 10px;
+    max-width: 50%;
+}
+
+dialog button{
+    font-family: 'Orbitron', 'sans-serif';
+    font-size: large;
+}
+
+dialog button:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
+
 
 /* Styling for the footer */
 footer {
@@ -276,7 +334,8 @@ footer {
 }
 
 @media screen and (min-width: 1400px) {
-    .item-container {
-        height: 25vh;
+    .info{
+        height: 60%;
+        width: 45%;
     }
 }

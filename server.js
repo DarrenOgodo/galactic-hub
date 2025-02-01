@@ -108,6 +108,18 @@ app.post('/register', async(req,res) => {
   }
 });
 
+app.get('/logout', (req,res) => {
+  res.cookie('auth-token', 
+    '', 
+    { 
+      expires: new Date(0), 
+      httpOnly: true,
+      path: '/' 
+    }
+  );
+  res.redirect('/');
+})
+
 // home page
 app.get('/home', verifyToken, (req, res) => {
   res.status(200).sendFile(path.join(__dirname, 'public', 'home', 'home.html'));
@@ -129,6 +141,14 @@ app.get('/gallery/apod', verifyToken, (req,res) => {
 
 app.get('/gallery/satellites', verifyToken, (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'gallery', 'satellites', 'satellites.html'));
+})
+
+app.get('/games', verifyToken, (req,res) =>{
+  res.sendFile(path.join(__dirname, 'public', 'games', 'games.html'));
+})
+
+app.get('/games/place-planets', verifyToken, (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'games', 'place-planets', 'place-planets.html'));
 })
 
 app.get('/satelliteData/:id/:duration', async(req,res) =>{

@@ -123,21 +123,80 @@ nav ul {
     max-width: 100%;
     margin: 0;
     padding: 0;
+    position: relative; /* Ensures dropdown is positioned correctly */
 }
 
+/* Ensure each list item has proper spacing */
 nav ul li {
+    position: relative; /* Necessary for dropdown positioning */
     margin: 0 10px;
 }
 
+/* Styling for links inside nav */
 nav ul li a {
     color: rgba(0, 0, 0);
     text-decoration: none;
     font-size: larger;
     font-weight: bold;
+    padding: 10px 15px;
+    display: block;
 }
 
+/* Hover effect for nav links */
 nav ul li a:hover {
     color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Dropdown Menu Styling */
+.has-dropdown {
+    position: relative; /* Ensures dropdown is positioned correctly */
+}
+
+/* Hide dropdown by default */
+.dropdown {
+    display: none;
+    padding: 5px;
+    position: absolute;
+    background-color: var(--secondary-color);
+    top: 100%; /* Aligns dropdown below the parent */
+    left: 0;
+    min-width: 150px;
+    border-radius: 5px;
+}
+
+/* Ensure dropdown items are styled properly */
+.dropdown li {
+    display: block;
+    overflow-x: hidden;
+}
+
+/* Style dropdown links */
+.dropdown li a {
+    padding: 10px 15px;
+    color: var(--tertiary-color); /* Ensure readability */
+    display: block;
+    background-color: var(--secondary-color); /* Background color */
+}
+
+/* Hover effect for dropdown links */
+.dropdown li a:hover {
+    background-color: #cccccc;
+}
+
+/* Show dropdown on hover */
+.has-dropdown:hover .dropdown {
+    display: block;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit; 
+    display: inherit; 
+    width: 100%;
+}
+
+a:hover{
     cursor: pointer;
 }
 
