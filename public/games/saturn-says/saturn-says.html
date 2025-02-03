@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../place-planets/place-planets.css">
+    <link rel="stylesheet" type="text/css" href="../saturn-says/saturn-says.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora:ital@1&family=Orbitron:wght@400..900&family=Prata&display=swap');
     </style>
-    <title>Galactic Hub - Place Planets</title>
+    <title>Galactic Hub - Saturn Says</title>
 </head>
 <body>
     <div class="head">
@@ -46,33 +46,45 @@
             <button id="resetButton">Reset Game</button>
         </dialog>
 
-        <h1 id="page-title">Place The Planets</h1>
-        <h3 style="margin-top: 0; display: flex; align-self: center;">
-            Place the planets in order from left to right according to distance from the sun.
-        </h3>
-        <h4 style="margin-top: 0; display: flex; align-self: center;">
-            Hold your mouse over a planet to reveal its name
-        </h4>
-        
-        <div class="placeholder">
-            <div class="box" data-planet="Mercury"></div>
-            <div class="box" data-planet="Venus"></div>
-            <div class="box" data-planet="Earth"></div>
-            <div class="box" data-planet="Mars"></div>
-            <div class="box" data-planet="Jupiter"></div>
-            <div class="box" data-planet="Saturn"></div>
-            <div class="box" data-planet="Uranus"></div>
-            <div class="box" data-planet="Neptune"></div>
-        </div>    
-    
-        <div class="planets-container">
+        <h1 id="page-title">Saturn Says...</h1>
+
+        <div id="message">
+            <h3 style="margin-top: 0; display: flex; align-self: center;">
+                Repeat the flashing pattern to win. The number of flashing colours increases each round.
+            </h3>
+            <h3 style="margin-top: 0; display: flex; align-self: center;">
+                The further you progress, the faster the colours flash and the less time you have to repeat the pattern.
+            </h3>
+            <h4 style="margin-top: 0; display: flex; align-self: center;">
+                The score on the left is your high score and the score on the right is your current score. High scores are device specific.
+            </h4>
+            <h4 style="margin-top: 0; display: flex; align-self: center;">
+                Colours will flash 3 times synchronously if you fail in repeating the pattern. Good luck!
+            </h4>
         </div>
+
+        <center>
+            <div id="black">
+                <div id="button-container">
+                    <button id="high-score" class="button">00</button>
+                    <button id="start" class="button">START</button>
+                    <button id="score" class="button">00</button>
+                </div>
+                <div id="state"></div>
+                <div id="red"></div>
+                <div id="blue"></div>
+                <div id="yellow"></div>
+                <div id="green"></div>
+            </div>
+            
+        </center>
+        
     </div>
         
     <footer class="footer">
         <p>&copy; 2025 Galactic Hub. All rights reserved.</p>
     </footer>
     
-    <script src="../place-planets/place-planets.js"></script>
+    <script src="../saturn-says/saturn-says.js"></script>
 </body>
 </html>

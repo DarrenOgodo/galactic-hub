@@ -31,6 +31,15 @@ async function verifyToken(req, res, next){
     try{
       const decodedToken = await admin.auth().verifyIdToken(token);
       req.user = decodedToken;
+
+      res.cookie('auth-token', 
+        token, 
+        { 
+          maxAge: 1800000, 
+          httpOnly: true 
+        }
+      ); // refreshing auth token expiry time for timeout
+
       next();
     }catch(error){
       console.log('Access denied, Invalid token:', error.message);
@@ -64,7 +73,7 @@ app.post('/login', async(req,res,next) => {
     res.cookie('auth-token', 
       token, 
       { 
-        maxAge: 3600000, 
+        maxAge: 1800000, 
         httpOnly: true 
       }
     ); // setting cookie with token
@@ -91,7 +100,7 @@ app.post('/register', async(req,res) => {
     res.cookie('auth-token', 
       token, 
       { 
-        maxAge: 3600000, 
+        maxAge: 1800000, 
         httpOnly: true 
       }
     ); // setting cookie with token
@@ -149,6 +158,10 @@ app.get('/games', verifyToken, (req,res) =>{
 
 app.get('/games/place-planets', verifyToken, (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'games', 'place-planets', 'place-planets.html'));
+})
+
+app.get('/games/saturn-says', verifyToken, (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'games', 'saturn-says', 'saturn-says.html'));
 })
 
 app.get('/satelliteData/:id/:duration', async(req,res) =>{
