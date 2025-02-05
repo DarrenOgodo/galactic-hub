@@ -118,15 +118,19 @@ app.post('/register', async(req,res) => {
 });
 
 app.get('/logout', (req,res) => {
-  res.cookie('auth-token', 
-    '', 
-    { 
-      expires: new Date(0), 
-      httpOnly: true,
-      path: '/' 
-    }
-  );
-  res.redirect('/');
+  try {
+    res.cookie('auth-token', 
+      '', 
+      { 
+        expires: new Date(0), 
+        httpOnly: true,
+        path: '/' 
+      }
+    );
+    res.redirect('/');
+  } catch (error) {
+    console.log('Error logging out', error)
+  }
 })
 
 // home page
@@ -179,8 +183,10 @@ app.get('/satelliteData/:id/:duration', async(req,res) =>{
   }
 })
 
-app.listen(port, () => {
-  console.log("Listening on " + port);
-});
+if(process.env.NODE_ENV != "test"){
+  app.listen(port, () => {
+    console.log("Listening on " + port);
+  });
+}
 
 module.exports = app;
