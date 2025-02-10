@@ -1,11 +1,21 @@
 // initialising firebase with functions from firebase SDK
-const { firebase, initializeApp } = require('firebase/compat/app');
+const { initializeApp } = require('firebase/app');
+
+// Authentication methods 
 const { 
     getAuth,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword
 } = require('firebase/auth');
-require('firebase/compat/firestore');
+
+// firestore methods 
+const { 
+    getFirestore,
+    doc,
+    setDoc,
+    collection 
+} = require('firebase/firestore');
+
 const firebaseConfig = require('../config/FirebaseConfig.js');
 
 // using config variables for init of auth server
@@ -19,9 +29,9 @@ const firebaseApp = initializeApp({
     measurementId
 } = firebaseConfig);
 
-// instantiate firestore db for user data
-const db = firebaseApp.firestore();
-const User = db.collection('Users');
+// firestore setup 
+const db = getFirestore(firebaseApp);
+const User = collection(db, "Users");
 
 const auth = getAuth(firebaseApp);
 
@@ -40,12 +50,13 @@ const createUser = async(user) => {
     try {
         const {fname, lname, dob, email, password} = user;
         const userCred = await createUserWithEmailAndPassword(auth, email, password);
-        const userDoc = await User.doc(userCred.user.uid).set({
+
+        await setDoc(doc(User, userCred.user.uid), {
             fname,
             lname,
             dob,
             email
-        });
+        })
         return userCred.user;
     } catch (error) {
         throw new Error(error.message);

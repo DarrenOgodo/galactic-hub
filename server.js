@@ -89,7 +89,7 @@ app.post('/login', async(req,res,next) => {
   }
 });
 
-// registeration flow using firebase auth from /Login/login.js
+// registeration flow using firebase auth from /server/auth/userAuth.js
 app.post('/register', async(req,res) => {
   const { fname, lname, dob, email, password } = req.body;
 
@@ -107,7 +107,7 @@ app.post('/register', async(req,res) => {
 
     res.status(200).json({ 
       message: 'Registeration succesful', 
-      user: newUser.uid 
+      user: newUser.uid
     });
 
     console.log(newUser.uid, 'registered');
