@@ -51,7 +51,8 @@ document.getElementById('registerForm').addEventListener('submit', async functio
                 lname: lname, 
                 dob: dob, 
                 email: signupEmail, 
-                password: signupPassword })
+                password: signupPassword 
+            })
         })
     
         // navigate to home page after registeration and login

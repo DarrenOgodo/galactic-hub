@@ -13,6 +13,7 @@ const {
     getFirestore,
     doc,
     setDoc,
+    getDoc,
     collection 
 } = require('firebase/firestore');
 
@@ -63,4 +64,24 @@ const createUser = async(user) => {
     }
 }
 
-module.exports = { loginUser, createUser };
+// get user from firestore using auth 
+const getUser = async(uid) => {
+    
+    try {
+        if(uid){
+            const snapshot = await getDoc(doc(db, "Users", uid));
+            
+            if (snapshot.exists()) {
+                return snapshot.data();
+            }else{
+                console.log(`No user data with id ${uid} found`); 
+            }
+        }else{
+            return null;
+        }
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}
+
+module.exports = { loginUser, createUser, getUser };

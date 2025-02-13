@@ -2,7 +2,7 @@
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-const { loginUser, createUser } = require('./server/auth/userAuth.js');
+const { loginUser, createUser, getUser } = require('./server/auth/userAuth.js');
 const admin = require('firebase-admin');
 const serviceAccount = require('./server/config/galactic-hub-505c5-firebase-adminsdk-ca4xy-a55f9946dd.json');
 
@@ -61,7 +61,6 @@ app.get("/", (req, res, next) => {
 });
 
 
-
 // login flow using firebase auth from /Login/login.js 
 app.post('/login', async(req,res,next) => {
   const { email,password } = req.body;
@@ -117,6 +116,25 @@ app.post('/register', async(req,res) => {
   }
 });
 
+// get user details from firestore
+app.get('/user', verifyToken, async(req,res) => {
+  const uid = req.user.uid;
+
+  try {
+    const user = await getUser(uid);
+
+    if(!user){
+      return res.status(404).json({error: `user with uid ${uid} not found.`});
+    }
+
+    res.status(200).json(user);
+    
+  } catch (error) {
+    console.log('Error getting user[server side]:', error.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+})
+
 app.get('/logout', (req,res) => {
   try {
     res.cookie('auth-token', 
@@ -166,6 +184,10 @@ app.get('/games/place-planets', verifyToken, (req,res) => {
 
 app.get('/games/saturn-says', verifyToken, (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'games', 'saturn-says', 'saturn-says.html'));
+})
+
+app.get('/profile', verifyToken, (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'profile', 'profile.html'));
 })
 
 app.get('/satelliteData/:id/:duration', async(req,res) =>{
