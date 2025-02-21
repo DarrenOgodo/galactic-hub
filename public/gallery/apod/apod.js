@@ -56,7 +56,7 @@ function displayAPOD(apod){
         alt.style.display = 'none';
         image.style.display = 'block';
 
-        title.innerText = `${apod.title} - ${apod.date}`
+        title.innerText = `${apod.title} (${apod.date})`
         image.src = apod.hdurl;
         image.alt = apod.title;
         image.title = apod.title;
@@ -69,7 +69,7 @@ function displayAPOD(apod){
         alt.style.display = 'none';
         image.style.display = 'none';
 
-        title.innerText = `${apod.title} - ${apod.date}`
+        title.innerText = `${apod.title} (${apod.date})`
         video.src = apod.url;
         description.innerText = apod.explanation;
 
@@ -80,7 +80,7 @@ function displayAPOD(apod){
         alt.style.display = 'block';
         image.style.display = 'none';
 
-        title.innerText = `${apod.title} - ${apod.date}`
+        title.innerText = `${apod.title} (${apod.date})`
         alt.innerText = apod.url;
         description.innerText = apod.explanation;
     }

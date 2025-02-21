@@ -14,6 +14,7 @@ const {
     doc,
     setDoc,
     getDoc,
+    updateDoc,
     collection 
 } = require('firebase/firestore');
 
@@ -83,5 +84,8 @@ const getUser = async(uid) => {
         throw new Error(error.message);
     }
 }
+
+// update user firestore details 
+const updateUser = async()
 
 module.exports = { loginUser, createUser, getUser };

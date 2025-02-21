@@ -135,6 +135,17 @@ app.get('/user', verifyToken, async(req,res) => {
   }
 })
 
+// update user details 
+app.put('/updateUser', verifyToken, async(req,res) =>{
+  const uid = req.user.uid;
+
+  const updatedData = {
+    fname,
+    lname,
+    dob
+  } = req.body;
+})
+
 app.get('/logout', (req,res) => {
   try {
     res.cookie('auth-token', 
