@@ -1,0 +1,277 @@
+/* Default/template css for the application */
+:root {
+    --primary-color: #1891AC;
+    --secondary-color: #ffffff;
+    --tertiary-color: #0a0a0a;
+    --fourth-color: #ededed;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: 'Orbitron', 'sans-serif';
+}
+
+body {
+    background-image: url("../images/main-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-x: hidden;
+}
+
+p{
+    font-size: larger;
+    letter-spacing: 1.5px;
+}
+
+.body-container {
+    flex: 1; /* Fills available space, pushing footer to bottom */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5vh;
+}
+
+/* Set full width for the header */
+.head {
+    width: 100%;
+    display: flex;
+    align-items: top center; /* Align logo and nav vertically */
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Styling for the logo */
+.logo {
+    height: 50px; /* Adjust the height as needed */
+    margin: 0 2em; /* Space between logo and navigation links */
+}
+
+.logo-container-left{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom-right-radius: 15px; 
+}
+
+.logo-container-right{
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom-left-radius: 15px; 
+    justify-content: center;
+    align-content: center;
+    max-width: 25%;
+    flex-grow: 1;
+    padding: 0;
+}
+
+.logo-container-right:hover{
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Set nav to fill remaining space */
+nav {
+    flex-grow: 1; /* Allow nav to take up remaining space */
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    min-width: 75%;
+    /* max-width: 90%; */
+    padding: 10px 20px;
+    margin-top: 0;
+    display: flex;
+    flex: 1;
+    justify-content: center; /* Align nav items to the center */
+    font-family: 'Orbitron', 'sans-serif';
+    border-bottom-left-radius: 15px; /* Adjust for desired rounded corner */
+    border-bottom-right-radius: 15px; /* Adjust for desired rounded corner */
+}
+
+/* Ensure nav-content aligns items properly */
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+    width: 100%;
+}
+
+/* Reset default styling for ul */
+nav ul {
+    list-style: none;
+    display: flex;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Ensures dropdown is positioned correctly */
+}
+
+/* Ensure each list item has proper spacing */
+nav ul li {
+    position: relative; /* Necessary for dropdown positioning */
+    margin: 0 10px;
+}
+
+/* Styling for links inside nav */
+nav ul li a {
+    color: rgba(0, 0, 0);
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block;
+}
+
+/* Hover effect for nav links */
+nav ul li a:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Dropdown Menu Styling */
+.has-dropdown {
+    position: relative; /* Ensures dropdown is positioned correctly */
+}
+
+/* Hide dropdown by default */
+.dropdown {
+    display: none;
+    padding: 5px;
+    position: absolute;
+    background-color: var(--secondary-color);
+    top: 100%; /* Aligns dropdown below the parent */
+    left: 0;
+    min-width: 150px;
+    border-radius: 5px;
+}
+
+/* Ensure dropdown items are styled properly */
+.dropdown li {
+    display: block;
+}
+
+/* Style dropdown links */
+.dropdown li a {
+    padding: 10px 15px;
+    color: var(--tertiary-color); /* Ensure readability */
+    display: block;
+    background-color: var(--secondary-color); /* Background color */
+}
+
+/* Hover effect for dropdown links */
+.dropdown li a:hover {
+    background-color: #cccccc;
+}
+
+/* Show dropdown on hover */
+.has-dropdown:hover .dropdown {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
+
+a:hover, a:active {
+    color: inherit;
+}
+
+#page-title {
+    font-size: 2.5rem; 
+    text-align: center; 
+    margin-top: 50px; 
+    color: white; 
+    font-family: 'Orbitron', sans-serif; 
+    text-shadow: 0 2px 2px rgba(255, 255, 255, 0.8), 
+                 0 0 5px rgba(255, 255, 255, 0.6), 
+                 0 0 10px rgba(255, 255, 255, 0.4);
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    background: none;
+}
+
+.box{
+    width: 90%;
+    height: fit-content;
+    padding: 1px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    align-self: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Styling for the footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--secondary-color);
+    padding: 10px;
+    text-align: center;
+    align-self: center;
+    font-family: 'Orbitron', 'sans-serif';
+    width: 100%;
+    margin-top: 10%;
+}
+
+
+@media screen and (max-width: 768px) {
+    html{
+        margin: 0;
+        border: 0;
+        padding: 0;
+        display: flex;
+    }
+    .head {
+        flex-direction:row;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+        z-index: 0;
+        top: 0;
+    }
+    .logo-container {
+        border-bottom-left-radius: 15px;
+    }
+    nav{
+        flex-grow: 1;
+        margin: 0;
+        padding: 15px;
+        height: 100%;
+        max-width: 50%;
+    }
+    .body-container {
+        flex-direction: column;
+        margin-top: 70px;
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .item-container {
+        height: 25vh;
+    }
+}

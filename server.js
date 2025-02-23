@@ -2,7 +2,7 @@
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-const { loginUser, createUser, getUser } = require('./server/auth/userAuth.js');
+const { loginUser, createUser, getUser, updateUser } = require('./server/auth/userAuth.js');
 const admin = require('firebase-admin');
 const serviceAccount = require('./server/config/galactic-hub-505c5-firebase-adminsdk-ca4xy-a55f9946dd.json');
 
@@ -131,19 +131,22 @@ app.get('/user', verifyToken, async(req,res) => {
     
   } catch (error) {
     console.log('Error getting user[server side]:', error.message);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: error.message });
   }
 })
 
 // update user details 
 app.put('/updateUser', verifyToken, async(req,res) =>{
   const uid = req.user.uid;
+  const updatedData = {...req.body};
 
-  const updatedData = {
-    fname,
-    lname,
-    dob
-  } = req.body;
+  try {
+    await updateUser(uid, updatedData);
+    res.status(200).json({ message: 'Profile updated succesfully!' });
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 })
 
 app.get('/logout', (req,res) => {

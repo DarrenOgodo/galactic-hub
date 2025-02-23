@@ -86,6 +86,26 @@ const getUser = async(uid) => {
 }
 
 // update user firestore details 
-const updateUser = async()
+const updateUser = async(uid, updatedData) => {
 
-module.exports = { loginUser, createUser, getUser };
+    try {
+        if(uid && updatedData){
+            const userRef = doc(db, "Users", uid);
+
+            // update individual user details with new user details.
+            // ignores email for auth reasons
+            await updateDoc(userRef, {
+                fname: updatedData.fname,
+                lname: updatedData.lname,
+                dob: updatedData.dob
+            });
+
+        }else{
+            return null;
+        }    
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}
+
+module.exports = { loginUser, createUser, getUser, updateUser };

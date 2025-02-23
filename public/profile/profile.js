@@ -15,9 +15,9 @@ window.addEventListener('DOMContentLoaded', async() => {
 
         welcome.innerText = `WELCOME, ${currentUser.fname.toUpperCase()}`;
 
-        currFname = currentUser.fname;
-        currLname = currentUser.lname;
-        currDob = currentUser.dob;
+        currFname = currFname || currentUser.fname;
+        currLname = currLname || currentUser.lname;
+        currDob = currDob || currentUser.dob;
 
         fname.value = currFname;
         lname.value = currLname;
@@ -27,16 +27,16 @@ window.addEventListener('DOMContentLoaded', async() => {
         console.log(error);
     }
 
-    fname.addEventListener('change', checkChange);
-    lname.addEventListener('change', checkChange);
-    dob.addEventListener('change', checkChange);
+    fname.addEventListener('keyup', checkChange);
+    lname.addEventListener('keyup', checkChange);
+    dob.addEventListener('keyup', checkChange);
 
     saveChanges.addEventListener('click', updateUser);
     
 })
 
 /**
- * checks if all/any fields values are changed from their initial value
+ * checks if all/any fields values are changed from their initial value. ALternates state of "save changes" button
  * @returns true if any are changed and false otherwise.
 */
 function checkChange(event){
@@ -51,24 +51,38 @@ function checkChange(event){
     }
 }
 
+// update user
+/**
+ * function to update user details.
+ * calls server with new values for update.
+ */
 async function updateUser(){
-    
-    const updatedData = {
-        fname: fname.value,
-        lname: lname.value,
-        dob: dob.value
-    }
-
     try {
         const response = await fetch('/updateUser', {
             method: 'PUT',
-            body: JSON.stringify(updatedData)
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            // send updated detail(s) to server for update 
+            body: JSON.stringify({
+                fname: fname.value,
+                lname: lname.value,
+                dob: dob.value
+            })
         });
+        const data = await response.json();
 
         if (response.ok) {
-            
+            // update current values for user details 
+            currFname = fname.value;
+            currLname = lname.value;
+            currDob = dob.value;
+
+            // alert user and dispatch new event to reinitialise user info 
+            window.alert(data.message);
+            window.dispatchEvent(new Event('DOMContentLoaded'));
         } else {
-            console.log(await response.json().error);
+            console.log(data.error);
         }
 
     } catch (error) {
