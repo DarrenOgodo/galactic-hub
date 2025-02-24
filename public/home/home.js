@@ -3,37 +3,37 @@ const news_cards = document.querySelectorAll(".card");
 let news;
 
 window.addEventListener('DOMContentLoaded', async ()=>{
-    // await getNews();
+    await getNews();
 
-    // news_cards.forEach((card,index) => {
-    //     // create nodes for image and news title
-    //     const img = document.createElement('div');
-    //     const title = document.createElement('div');
-    //     const p = document.createElement('p');
-    //     const a =  document.createElement('a');
+    news_cards.forEach((card,index) => {
+        // create nodes for image and news title
+        const img = document.createElement('div');
+        const title = document.createElement('div');
+        const p = document.createElement('p');
+        const a =  document.createElement('a');
 
-    //     // add appropriate classes 
-    //     img.classList.add("news-img");
-    //     title.classList.add("news-title");
+        // add appropriate classes 
+        img.classList.add("news-img");
+        title.classList.add("news-title");
 
-    //     // add news contents
-    //     img.style.backgroundImage = `url(${news[index].image_url})`;
-    //     p.textContent = `${news[index].title} - [${news[index].news_site}]`;
-    //     p.style.padding = '5px';
-    //     a.setAttribute('target', '_blank');
-    //     a.href = `${news[index].url}`;
+        // add news contents
+        img.style.backgroundImage = `url(${news[index].image_url})`;
+        p.textContent = `${news[index].title} - [${news[index].news_site}]`;
+        p.style.padding = '5px';
+        a.setAttribute('target', '_blank');
+        a.href = `${news[index].url}`;
         
-    //     // add image and title to card
-    //     title.appendChild(p);
+        // add image and title to card
+        title.appendChild(p);
 
-    //     a.appendChild(img);
-    //     a.appendChild(title);
-    //     appendChildren(a, [img, title]);
+        a.appendChild(img);
+        a.appendChild(title);
+        appendChildren(a, [img, title]);
 
-    //     card.appendChild(a);
-    // })
+        card.appendChild(a);
+    })
 
-    // const rand_fact = await getFact();
+    const rand_fact = await getFact();
     const fact_head = document.createElement('h1');
     fact_head.textContent = 'DID YOU KNOW?';
 

@@ -218,11 +218,16 @@ a:hover, a:active {
 .box{
     width: 90%;
     height: fit-content;
-    padding: 1px;
+    padding: 1em 1.5em;
     margin-bottom: 10px;
     border-radius: 20px;
     align-self: center;
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+summary{
+    font-size: larger;
+    font-weight: bolder;
 }
 
 /* Styling for the footer */

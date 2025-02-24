@@ -204,8 +204,12 @@ app.get('/profile', verifyToken, (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'profile', 'profile.html'));
 })
 
+app.get('/about', (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', 'about', 'about.html'));
+})
+
 app.get('/satelliteData/:id/:duration', async(req,res) =>{
-  const n2yoKey = "8CJTFR-Y8KBU8-QLTW4U-5E6E";
+  const n2yoKey = '8CJTFR-Y8KBU8-QLTW4U-5E6E';
   const { id, duration } = req.params;
 
   try {
