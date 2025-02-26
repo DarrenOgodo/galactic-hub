@@ -13,12 +13,15 @@ const video = document.getElementById('video');
 const alt = document.getElementById('alt-display');
 const description = document.getElementById('image-desc');
 
+// const { applyMainColorShadow } = require('../../color-picker/color-picker');
+import { applyMainColorShadow } from '../../color-picker/color-picker.js';
 
 button.addEventListener('click', async() => {
     // replace button text with loader
     buttonText.style.display = 'none';
     loader.style.display = 'inline-block';
     button.disabled = true;
+    image.style.boxShadow = 'none';
     image_cont.style.display = 'none';
 
     // Get today's date and selected date
@@ -56,10 +59,12 @@ function displayAPOD(apod){
         alt.style.display = 'none';
         image.style.display = 'block';
 
-        title.innerText = `${apod.title} (${apod.date})`
-        image.src = apod.hdurl;
+        title.innerText = `${apod.title} (${apod.date})`;
+        image.crossOrigin = "Anonymous";
+        image.src = `https://corsproxy.io/${apod.hdurl}`;
         image.alt = apod.title;
         image.title = apod.title;
+        image.onload = () => applyMainColorShadow(image);
         description.innerText = apod.explanation;
 
     }else if(apod.media_type == "video"){
@@ -69,7 +74,7 @@ function displayAPOD(apod){
         alt.style.display = 'none';
         image.style.display = 'none';
 
-        title.innerText = `${apod.title} (${apod.date})`
+        title.innerText = `${apod.title} (${apod.date})`;
         video.src = apod.url;
         description.innerText = apod.explanation;
 
@@ -80,7 +85,7 @@ function displayAPOD(apod){
         alt.style.display = 'block';
         image.style.display = 'none';
 
-        title.innerText = `${apod.title} (${apod.date})`
+        title.innerText = `${apod.title} (${apod.date})`;
         alt.innerText = apod.url;
         description.innerText = apod.explanation;
     }

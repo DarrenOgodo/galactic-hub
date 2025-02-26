@@ -1,7 +1,7 @@
 // mocking firebase auth and admin to avoid making actual network calls during testing
 jest.mock("firebase-admin");
 jest.mock("firebase/auth");
-jest.mock("firebase/compat/firestore");
+jest.mock("firebase/firestore");
 
 const request = require("supertest");
 const app = require("../server");
