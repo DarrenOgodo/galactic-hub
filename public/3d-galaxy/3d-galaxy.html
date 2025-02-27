@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="../3d-galaxy/3d-galaxy.css">
+    <title>Galactic Hub - 3D Galaxy Showcase</title>
+</head>
+<body>
+    <div class="head">
+        <div class="logo-container-left">
+            <img src="../images/logo.png" alt="Galactic hub logo" class="logo"></img>
+        </div>
+        <nav>
+            <div class="nav-content">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="/games">Games</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">More</a>
+                        <ul class="dropdown">
+                            <li><a href="/3d-galaxy">3D Galaxy</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>        
+        </nav>
+        <div class="logo-container-right" title="Profile">
+            <a href="/profile">
+                <center><P><i class="fa-regular fa-user fa-xl"></i> Profile</P></center>
+            </a>
+        </div>
+    </div>
+
+    <!-- put all the content in the body-container div so footer is at the bottom of the page -->
+    <div class="body-container">
+            <h1 id="page-title">3D Galaxy Showcase</h1>
+            <h3 style="margin-top: 0; display: flex; align-self: center;">
+                Click "Start" to run the 3D model.
+            </h3>
+            <h4 style="margin-top: 0; display: flex; align-self: center;">
+                Beware the model is somewhat heavy and so your system could get quite warm or loud from fan spin.
+            </h4>
+            
+            <div id="map-cont">
+                <h4 style="margin: 10px 0; display: flex; align-self: center;">
+                    Powered by Solar System Scope (www.solarsystemscope.com)
+                </h4>
+                
+                <!-- <div class="map-container" id="map"></div> -->
+                <iframe src="https://www.solarsystemscope.com/iframe" width="500" height="400" class="map-container" id="map" style="min-width:500px; min-height: 400px; border: 2px solid #0f5c6e;"></iframe>
+            </div>
+            
+    </div>
+        
+    <footer class="footer">
+        <p>&copy; 2025 Galactic Hub. All rights reserved.</p>
+    </footer>
+
+    
+    <script src="../3d-galaxy/3d-galaxy.js"></script>
+</body>
+</html>

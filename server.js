@@ -204,6 +204,10 @@ app.get('/profile', verifyToken, (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'profile', 'profile.html'));
 })
 
+app.get('/3d-galaxy', verifyToken, (req,res) => {
+  res.sendFile(path.join(__dirname, 'public', '3d-galaxy', '3d-galaxy.html'));
+})
+
 app.get('/about', (req,res) => {
   res.sendFile(path.join(__dirname, 'public', 'about', 'about.html'));
 })
