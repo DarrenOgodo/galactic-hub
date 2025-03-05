@@ -1,10 +1,12 @@
 // importing required modules
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const { loginUser, createUser, getUser, updateUser } = require('./server/auth/userAuth.js');
+
 const admin = require('firebase-admin');
-const serviceAccount = require('./server/config/galactic-hub-505c5-firebase-adminsdk-ca4xy-a55f9946dd.json');
+const serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
 // setting up server
 const app = express();
