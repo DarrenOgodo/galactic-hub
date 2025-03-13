@@ -6,4 +6,4 @@ module.exports = {
     credential: {
         cert: jest.fn()
     },
-};  
+};

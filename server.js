@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 const port = process.env.PORT || 5050;
 
-// **TALK TO MISHA TO DISCUSS THE BEST WAY TO HANDLE SERVICE ACCOUNT**
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
@@ -215,7 +215,7 @@ app.get('/about', (req,res) => {
 })
 
 app.get('/satelliteData/:id/:duration', async(req,res) =>{
-  const n2yoKey = '8CJTFR-Y8KBU8-QLTW4U-5E6E';
+  const n2yoKey = process.env.N2Y0_KEY;
   const { id, duration } = req.params;
 
   try {
